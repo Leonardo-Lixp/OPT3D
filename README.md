@@ -252,9 +252,9 @@ If you use this code, please cite:
 
 ```bibtex
 @misc{molecular-descriptors,
-  author = {Your Name},
+  author = {Li Xiaopeng},
   title = {Molecular Property Prediction with 3D Descriptors},
-  year = {2025},
+  year = {2026},
   publisher = {GitHub},
   url = {https://github.com/yourusername/molecular-descriptors}
 }
