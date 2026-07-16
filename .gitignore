@@ -1,9 +1,15 @@
-# Python
+# =============================================================================
+# Python bytecode and caches
+# =============================================================================
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+
+# =============================================================================
+# Python build and packaging files
+# =============================================================================
 build/
 develop-eggs/
 dist/
@@ -16,21 +22,35 @@ parts/
 sdist/
 var/
 wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
+# =============================================================================
 # Virtual environments
+# =============================================================================
 venv/
 ENV/
 env/
 .venv/
-.env
+venv.bak/
+env.bak/
+.python-version
 
+# Conda local environments
+.conda/
+conda-env/
+
+# =============================================================================
 # Jupyter Notebook
+# =============================================================================
 .ipynb_checkpoints/
 
-# IDE
+# =============================================================================
+# IDE and editor files
+# =============================================================================
 .idea/
 .vscode/
 *.swp
@@ -40,7 +60,9 @@ env/
 .pydevproject
 .settings/
 
-# OS files
+# =============================================================================
+# Operating-system files
+# =============================================================================
 .DS_Store
 .DS_Store?
 ._*
@@ -48,85 +70,146 @@ env/
 .Trashes
 ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# Data files
+# =============================================================================
+# Dataset files
+#
+# CSV files outside data/ are ignored by default.
+# CSV files inside data/ and its subdirectories are retained.
+# =============================================================================
 *.csv
 *.csv.gz
 *.csv.zip
-!data/*.csv  # Keep sample data
 
-# Descriptor files
+!data/
+!data/**/
+!data/*.csv
+!data/**/*.csv
+!data/*.csv.gz
+!data/**/*.csv.gz
+!data/*.csv.zip
+!data/**/*.csv.zip
+
+# Keep documentation files in data/
+!data/*.md
+!data/**/*.md
+!data/*.txt
+!data/**/*.txt
+
+# =============================================================================
+# Precomputed descriptor and feature files
+# =============================================================================
 *.pkl
+*.pickle
 *.npy
 *.npz
+*.joblib
+
 descriptors/
+**/descriptors/
 calculate_descriptors/descriptors/
 coulomb_descriptors/
+features/
+precomputed_features/
 
-# Model outputs
+# =============================================================================
+# Model checkpoints and trained-model outputs
+# =============================================================================
 acs_results/
 acs_evaluation_results/
 AutogluonModels/
 ag_*/
+ag-*/
+checkpoints/
+saved_models/
+
 *.pt
 *.pth
+*.ckpt
 *.model
 *.h5
+*.onnx
 
-# Optuna
+# =============================================================================
+# Optuna databases
+# =============================================================================
 *.db
+*.sqlite
+*.sqlite3
 optuna*.db
 
+# =============================================================================
 # Logs
+# =============================================================================
 *.log
 *.out
 *.err
 logs/
+nohup.out
 
-# Results
+# =============================================================================
+# Generated results and evaluation outputs
+# =============================================================================
 results/
 evaluation/
-*.json
-!params_*.json  # Keep parameter files if needed
+outputs/
+predictions/
+figures/generated/
 
+# =============================================================================
 # Temporary files
+# =============================================================================
 tmp/
 temp/
 *.tmp
 *.bak
+*.old
+*.orig
 
-# Large files
+# =============================================================================
+# Large molecular structure files
+# =============================================================================
 *.hdf5
+*.h5ad
 *.sdf
 *.sdf.gz
 *.mol
 *.mol2
 
-# Test outputs
+# =============================================================================
+# Testing and coverage
+# =============================================================================
 test_output/
 tests/__pycache__/
-
-# Coverage
 .coverage
+.coverage.*
 htmlcov/
 .pytest_cache/
+.tox/
+.nox/
 
-# MyPy
+# =============================================================================
+# Static-analysis and linting caches
+# =============================================================================
 .mypy_cache/
-
-# Ruff
 .ruff_cache/
+.pyre/
+.pytype/
 
-# Environment files
+# =============================================================================
+# Environment variables and secrets
+# =============================================================================
 .env
 .env.local
 .env.*.local
-
-# Secrets
 secrets/
 *.pem
 *.key
+*.token
 
-# Build artifacts
+# =============================================================================
+# Miscellaneous
+# =============================================================================
 *.pyc
 *.pyo
