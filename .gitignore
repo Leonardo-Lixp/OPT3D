@@ -1,0 +1,132 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+.env
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Data files
+*.csv
+*.csv.gz
+*.csv.zip
+!data/*.csv  # Keep sample data
+
+# Descriptor files
+*.pkl
+*.npy
+*.npz
+descriptors/
+calculate_descriptors/descriptors/
+coulomb_descriptors/
+
+# Model outputs
+acs_results/
+acs_evaluation_results/
+AutogluonModels/
+ag_*/
+*.pt
+*.pth
+*.model
+*.h5
+
+# Optuna
+*.db
+optuna*.db
+
+# Logs
+*.log
+*.out
+*.err
+logs/
+
+# Results
+results/
+evaluation/
+*.json
+!params_*.json  # Keep parameter files if needed
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Large files
+*.hdf5
+*.sdf
+*.sdf.gz
+*.mol
+*.mol2
+
+# Test outputs
+test_output/
+tests/__pycache__/
+
+# Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+
+# Ruff
+.ruff_cache/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Secrets
+secrets/
+*.pem
+*.key
+
+# Build artifacts
+*.pyc
+*.pyo
