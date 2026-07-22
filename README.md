@@ -5,7 +5,7 @@ This repository contains a comprehensive toolkit for molecular property predicti
 ## Overview
 
 The toolkit provides:
-- **3D molecular descriptors**: Distance-weighted atom pair descriptors based on quantum chemistry calculations
+- **OPT3D descriptors**: Distance-weighted atom-pair descriptors derived from three-dimensional molecular conformations and multiple atomic-property weighting schemes
 - **Coulomb Matrix**: Global molecular representation encoding atomic numbers and interatomic distances
 - **Machine Learning Models**: Random Forest, Ensemble, and ACS Neural Network
 - **Robustness Testing**: Evaluate model performance under feature noise
@@ -67,8 +67,8 @@ pip install autogluon.tabular
 ```
 
 ### Python Version
-- Python >= 3.8
-- Recommended: Python 3.10
+- Main environment: Python 3.11.8
+- AutoGluon environment: Python 3.10
 
 ### Experimental Environment
 
