@@ -96,10 +96,10 @@ python calculate_descriptors.py --dataset esol --sl 0.1 --nsc 500
 cd model/RF
 
 # Step 1: Hyperparameter optimization
-python bayes_rf.py --dataset esol --descriptor esol_nsc500_sl20.pkl --n-trials 100
+python bayes_rf.py --dataset esol --descriptor esol_nsc500_sl10.pkl --n-trials 100
 
 # Step 2: Evaluate with best parameters (multiple splits)
-python evaluate_rf.py --dataset esol --descriptor esol_nsc500_sl20.pkl --n-accept 10
+python evaluate_rf.py --dataset esol --descriptor esol_nsc500_sl10.pkl --n-accept 10
 ```
 
 #### ACS Neural Network
@@ -108,10 +108,10 @@ python evaluate_rf.py --dataset esol --descriptor esol_nsc500_sl20.pkl --n-accep
 cd model/ACS
 
 # Step 1: Hyperparameter optimization
-python bayes_acs.py --dataset esol --descriptor esol_nsc500_sl20.pkl --n-trials 100
+python bayes_acs.py --dataset esol --descriptor esol_nsc500_sl10.pkl --n-trials 100
 
 # Step 2: Evaluate with best parameters
-python evaluate_acs.py --dataset esol --descriptor esol_nsc500_sl20.pkl --n-accept 10
+python evaluate_acs.py --dataset esol --descriptor esol_nsc500_sl10.pkl --n-accept 10
 ```
 
 #### Ensemble Model
@@ -120,7 +120,7 @@ python evaluate_acs.py --dataset esol --descriptor esol_nsc500_sl20.pkl --n-acce
 conda activate autogluon
 cd model/Ensemble
 
-python ensemble.py --dataset esol --descriptor esol_nsc500_sl20.pkl
+python ensemble.py --dataset esol --descriptor esol_nsc500_sl10.pkl
 ```
 
 ### 3. Robustness Testing
@@ -239,16 +239,16 @@ All models use **scaffold-based splitting**:
 
 ## Datasets
 
-| Dataset | Task Type | Size | Tasks |
-|---------|-----------|------|-------|
-| ESOL | Regression | 1,128 | 1 (solubility) |
-| Lipophilicity | Regression | 4,200 | 1 (logP) |
-| FreeSolv | Regression | 642 | 1 (hydration free energy) |
-| BACE | Classification | 1,513 | 1 (BACE-1 binding) |
-| BBBP | Classification | 2,050 | 1 (BBB permeability) |
-| SIDER | Classification | 1,427 | 27 (side effects) |
-| Tox21 | Classification | 7,831 | 12 (toxicity assays) |
-| ToxCast | Classification | 8,597 | 617 (toxicity assays) |
+| Dataset | Task Type | Original Size | Processed Size | Tasks |
+|---------|-----------|---------------|----------------|-------|
+| ESOL | Regression | 1,128 | 1,128 | 1 (solubility) |
+| Lipophilicity | Regression | 4,200 | 4,200 | 1 (logP) |
+| FreeSolv | Regression | 642 | 642 | 1 (hydration free energy) |
+| BACE | Classification | 1,513 | 1,513 | 1 (BACE-1 binding) |
+| BBBP | Classification | 2,050 | 2,050 | 1 (BBB permeability) |
+| SIDER | Classification | 1,427 | 1,219 | 27 (side effects) |
+| Tox21 | Classification | 7,831 | 7,581 | 12 (toxicity assays) |
+| ToxCast | Classification | 8,597 | 6,841 | 617 (toxicity assays) |
 
 ## Citation
 
@@ -260,7 +260,7 @@ If you use this code, please cite:
   title = {Molecular Property Prediction with 3D Descriptors},
   year = {2026},
   publisher = {GitHub},
-  url = {https://github.com/yourusername/molecular-descriptors}
+  url = {https://github.com/Leonardo-Lixp/OPT3D}
 }
 ```
 
@@ -270,4 +270,4 @@ MIT License
 
 ## Contact
 
-For questions or issues, please open a GitHub issue or contact [your email].
+For questions or issues, please open a GitHub issue or contact lixp39@mail2.sysu.edu.cn.
