@@ -57,7 +57,7 @@ GitHub/
 # Core dependencies
 pip install numpy pandas scikit-learn rdkit-pypi optuna torch
 
-# For OpenBabel (Coulomb Matrix)
+# Open Babel for molecular conformation generation and Coulomb Matrix calculation
 conda install -c conda-forge openbabel
 
 # For Ensemble model (separate conda environment)
@@ -69,6 +69,10 @@ pip install autogluon.tabular
 ### Python Version
 - Python >= 3.8
 - Recommended: Python 3.10
+
+### Experimental Environment
+
+The main experiments were performed using Python 3.11.8, NumPy 1.26.4, pandas 2.3.3, scikit-learn 1.7.2, RDKit 2024.03.2, Open Babel 3.1.0, PySCF 2.7.0, Optuna 4.4.0, and PyTorch 2.6.0 with CUDA 12.4. AutoGluon experiments were performed using Python 3.10 and AutoGluon 1.3.0.
 
 ## Quick Start
 
@@ -206,11 +210,7 @@ C_ij = Z_i * Z_j / |R_i - R_j| (off-diagonal)
 
 ## Data Splitting
 
-All models use **scaffold-based splitting**:
-- Groups molecules by Murcko scaffold
-- Ensures train/test split based on molecular structure
-- Avoids data leakage between similar molecules
-- Maintains target train/test ratio (e.g., 8:2)
+All models use **scaffold-based data splitting** based on Bemis–Murcko scaffolds. RF models use training and test sets, whereas ACS models use separate training, validation, and test sets. Independently generated scaffold partitions and corresponding random seeds are used for repeated evaluation.
 
 ## Evaluation Metrics
 
