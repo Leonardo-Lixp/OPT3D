@@ -16,13 +16,16 @@ The toolkit provides:
 GitHub/
 ├── data/                                    # Dataset files (8 datasets)
 │   ├── esol.csv                             # Regression: aqueous solubility
-│   ├── lip.csv                              # Regression: lipophilicity  
+│   ├── lip.csv                              # Regression: lipophilicity
 │   ├── freesolv.csv                         # Regression: free solvation energy
 │   ├── bace.csv                             # Classification: BACE-1 binding
 │   ├── bbbp.csv                             # Classification: BBB permeability
 │   ├── sider.csv                            # Classification: side effects (27 tasks)
 │   ├── tox21.csv                            # Classification: toxicity (12 tasks)
 │   └── toxcast.csv                          # Classification: toxicity (617 tasks)
+│
+├── processed smiles.xlsx                    # SMILES transformation log
+│                                            # (original vs transformed with treatment info)
 │
 ├── calculate_descriptors/                   # 3D descriptor calculation
 │   ├── calculate_descriptors.py             # Main calculation script
