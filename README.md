@@ -78,9 +78,9 @@ pip install autogluon.tabular
 cd calculate_descriptors
 
 # Calculate for a single dataset
-python calculate_descriptors.py --dataset esol --sl 0.2 --nsc 500
+python calculate_descriptors.py --dataset esol --sl 0.1 --nsc 500
 
-# Output: descriptors/esol_nsc500_sl20.pkl
+# Output: descriptors/esol_nsc500_sl10.pkl
 ```
 
 **Parameters:**
@@ -148,30 +148,31 @@ python compute_coulomb_matrix.py --input-dir ../data --output-dir coulomb_descri
 
 ### 3D Distance-Weighted Atom Pair Descriptors
 
-The 3D molecular descriptors are computed using quantum chemistry calculations:
+The 3D molecular descriptors are computed using molecular mechanics optimization:
 
-1. **3D Structure Generation**: 
-   - PySCF for geometry optimization (RHF/def2-SVP)
-   - OpenBabel and RDKit as fallback methods
+1. **3D Structure Generation**:
+   - OpenBabel for 3D conformation generation
+   - UFF and MMFF optimization in RDKit
+   - PySCF for quantum chemistry charge calculation (when Gasteiger charges fail)
 
 2. **Atomic Properties** (9 properties per atom):
+   - Unit weight (uniform weighting)
    - Molecular weight
    - van der Waals volume
-   - Electronegativity
    - Polarizability
-   - Gasteiger charge
-   - Mulliken charge (from PySCF)
-   - Number of hydrogen bond donors
-   - Number of hydrogen bond acceptors
-   - Topological polar surface area contribution
+   - Electronegativity
+   - Atomic charge (Gasteiger or Mulliken)
+   - Ionization potential
+   - Electrotopological state (E-state)
+   - Covalent radius
 
 3. **Descriptor Calculation**:
    ```
-   D_ij = sum_k(exp(-sl * d_ij) * w_ik * w_jk)
+   D_ij(s) = sin(s * sl * d_ij) / (s * sl * d_ij)
    ```
    - `d_ij`: Distance between atoms i and j
    - `sl`: Scaling factor (user-defined)
-   - `w_ik`: Atomic property k for atom i
+   - `s`: Component index (0 to nsc-1)
 
 4. **Output**: Vector of length `9 × nsc` (default: 4500)
 
